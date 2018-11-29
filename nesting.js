@@ -118,8 +118,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -159,6 +159,11 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
+let recordCleaner = arr => {  //myCar.accidents[i]
+  for (i = 0; i <arr.length; i++) {
+    arr[i]
+  }
+}
 //Code Here
 
 
@@ -179,5 +184,23 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+let looper = numsArr => {
+  for (let i = 0; i < numsArr.length; i++) {
+    for (let j = 0; j < numsArr[i].length; j++) {
+      if (numsArr % 2 !==0) {
+        'odd'
+      } else {
+        'even'
+      }
+      if(numsArr[i] % 2 !==0) {
+        'odd'
+      } else {
+        'even'
+      }
+    }
+  }
+  return numsArr
+}
+
 
 
