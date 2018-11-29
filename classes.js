@@ -30,6 +30,18 @@
 */
 
 //Code Here
+class Employee {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget(){
+   return `${this.first_name} ${this.last_name} Widget`
+  }
+}
+
 
 
 
@@ -50,7 +62,37 @@
 */
 
 //Code Here
+class Manager {
+  constructor(first_name, last_name, email, age, reports) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+  }
+  makeWidget(){
+   return `${this.first_name} ${this.last_name} Widget`
+  }
+  hire(employee) {
+    this.reports.push(employee)
+  }
+  fire(index) {
+    this.reports.splice(index, 1)
+  }
+}
 
+// class Manager2 extends Employee {
+//   constructor(first_name, last_name, email, age) {
+//   super(first_name, last_name, email, age)
+//   this.reports = [];
+//   }
+// hire(employee) {
+//   this.reports.push(employee)
+// }
+// fire(index) {
+//   this.reports.splice(index, 1)
+// }
+// }
 
 
 ////////// PROBLEM 3 //////////
@@ -76,6 +118,49 @@
 */
 
 //Code Here
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, reports, title, bonus) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+  makeWidget(){
+   return `${this.first_name} ${this.last_name} Widget`
+  }
+  hire(employee) {
+    this.reports.push(employee)
+    this.managerTitle()
+  }
+  fire(index) {
+    this.reports.splice(index, 1)
+    this.managerTitle()
+    this.fireBonus()
+  }
+  managerTitle(title) {
+    let l = this.reports.length;
+    if (l === 0) {
+      return this.title
+    } else if (l >= 1 && l <= 3) {
+      return this.title = 'Barely Manager'
+    } else if (l >= 4 && l <= 10) {
+      return this.title = 'Mostly Manager'
+    } else if (l >= 11 && l <= 50) {
+      return this.title = 'Manager'
+    } else if (l >= 51 && l <= 100) {
+      return this.title = 'Manager Plus'
+    }else {
+      return this.title = 'Bestest Manager'
+    }
+  }
+  fireBonus(bonus) {
+    this.bonus += 100;
+  }
+}
+
 
 
 
@@ -103,5 +188,30 @@
 */
 
 //Code Here
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(n) {
+    this.widgets_made_count += n;
+    // increase wear_and_tear_count by 1 per 50 widgets
+    let fifty = n / 50
+    this.wear_and_tear_count += Math.trunc(fifty)
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  reboot() {
+    let that = this;  // <--- can also use an arrow function so we can still use this.whatever
+    return function() {
+      that.wear_and_tear_count -= 10;
+      that.needs_reboot = false;
+    }
+  }
+
+  
+}
 
 
