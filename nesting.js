@@ -50,9 +50,9 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+//Code Here 
 function employeeUpdater() {
-  for (i = 0; i < employees.length; i++) {
+  for (i = employees.length - 1; i >= 0; i--) { //<---- GO BACKWARDS W/ SPLICE SO an i doesn't get skip
     if (employees[i].firstName === 'Theo') {
       employees.splice(i, 1)
     }
@@ -184,18 +184,13 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-let looper = numsArr => {
+let looper = () => {
   for (let i = 0; i < numsArr.length; i++) {
     for (let j = 0; j < numsArr[i].length; j++) {
-      if (numsArr % 2 !==0) {
-        'odd'
+      if (numsArr[i][j] % 2 !==0) {
+        numsArr[i][j] = 'odd'
       } else {
-        'even'
-      }
-      if(numsArr[i] % 2 !==0) {
-        'odd'
-      } else {
-        'even'
+        numsArr[i][j] = 'even'
       }
     }
   }
